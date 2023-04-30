@@ -222,9 +222,9 @@ public class Program {
 				System.out.printf("%d\t", e);
 			}
 			System.out.println();
-		} catch (CustomArraySizeException e) {
+		} catch (CustomArraySizeException e) { // обработка возникшего исключения по нашему классу
 			System.out.println(e.getMessage());
-			System.out.printf(
+			System.out.printf( //вывод дополнительной информации
 					"Длина первого массива: %d\nДлина второго массива: %d\n",
 					e.getLength1(), e.getLength2());
 		}
@@ -246,11 +246,13 @@ public class Program {
 
 
 }
+/**
+ * собственный класс обработки ошибки унаследованный от RuntimeException
+ */
+class CustomArraySizeException extends RuntimeException { 
 
-class CustomArraySizeException extends RuntimeException {
-
-	int length1;
-	int length2;
+	int length1; // длинапервого массива
+	int length2;  // длина второго массива
 
 	public int getLength1() {
 		return length1;
@@ -259,9 +261,14 @@ class CustomArraySizeException extends RuntimeException {
 	public int getLength2() {
 		return length2;
 	}
-
+	/**
+	 * конструктор класса
+	 * @param message описание ошибки
+	 * @param length1 длина первого массива
+	 * @param length2 длина второго массива
+	 */
 	public CustomArraySizeException(String message, int length1, int length2) {
-		super(message);
+		super(message); // вызов конструктора базового типа
 		this.length1 = length1;
 		this.length2 = length2;
 	}
