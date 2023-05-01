@@ -25,7 +25,6 @@ public class Task1 {
 				
 			} catch (NumberFormatException e) {
 				System.out.println("Введено неверное значение, попробуйте еще раз.");
-				// task1();
 			}
         }
         scanner.close();
